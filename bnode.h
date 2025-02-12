@@ -75,7 +75,7 @@ inline void addLeft(BNode<T>* pNode, BNode<T>* pAdd)
  * Add a node to the right of the current node
  ******************************************************/
 template <class T>
-inline void addRight (BNode<T>* pNode, BNode<T>* pAdd)
+inline void addRight(BNode<T>* pNode, BNode<T>* pAdd)
 {
 
 }
@@ -85,7 +85,7 @@ inline void addRight (BNode<T>* pNode, BNode<T>* pAdd)
  * Add a node to the left of the current node
  ******************************************************/
 template <class T>
-inline void addLeft (BNode<T>* pNode, const T& t)
+inline void addLeft(BNode<T>* pNode, const T& t)
 {
 
 }
@@ -101,7 +101,7 @@ inline void addLeft(BNode<T>* pNode, T&& t)
  * Add a node to the right of the current node
  ******************************************************/
 template <class T>
-void addRight (BNode<T>* pNode, const T& t)
+void addRight(BNode<T>* pNode, const T& t)
 {
 
 }

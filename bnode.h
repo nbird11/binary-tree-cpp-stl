@@ -130,6 +130,9 @@ void clear(BNode<T>*& pThis)
    clear(pThis->pLeft);
    clear(pThis->pRight);
    delete pThis;
+   // Can't just delete pThis because it's a reference which
+   //   may still be active in the calling function.
+   pThis = nullptr;
 }
 
 /***********************************************
@@ -175,5 +178,30 @@ BNode<T>* copy(const BNode<T>* pSrc)
 template <class T>
 void assign(BNode<T>*& pDest, const BNode<T>* pSrc)
 {
+   // Case 1: Source is empty.
+   if (!pSrc)
+   {
+      clear(pDest);
+      return;
+   }
 
+   // Case 2: Destination is empty.
+   if (!pDest)
+   {
+      pDest = copy(pSrc);
+      return;
+   }
+
+   // Case 3: Both are non-empty.
+   if (pSrc && pDest)
+   {
+      pDest->data = pSrc->data;
+      assign(pDest->pLeft, pSrc->pLeft);
+      if (pDest->pLeft)
+         pDest->pLeft->pParent = pDest;
+      
+      assign(pDest->pRight, pSrc->pRight);
+      if (pDest->pRight)
+         pDest->pRight->pParent = pDest;
+   }
 }

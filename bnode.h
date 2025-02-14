@@ -14,7 +14,7 @@
  *        BNode         : A class representing a BNode
  *    Additionally, it will contain a few functions working on Node
  * Author
- *    <your names here>
+ *    Nathan Bird, Brock Hoskins
  ************************************************************************/
 
 #pragma once
